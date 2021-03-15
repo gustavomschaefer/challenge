@@ -8,7 +8,7 @@
                 <div class="card-header">Postagens</div>
 
                 <div class="card-body">
-                    <b>|| Adicione aqui as postagens ativas ||</b>
+                    <b>|| Adicione aqui as postagens ativas teste ||</b>
 
                     <div class="card" style="width: 18rem;">
                         <img src="..." class="card-img-top" alt="...">
