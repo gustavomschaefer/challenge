@@ -10,14 +10,17 @@
                 <div class="card-body">
                     <b>|| Adicione aqui as postagens ativas teste ||</b>
 
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Título</h5>
-                            <p class="card-text">Descrição</p>
-                            <a href="{{ URL::to('postagem') }}" class="btn btn-primary">Abrir postagem</a>
+                    @foreach ($postagens as $postagem)
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$postagem->titulo}}</h5>
+                                <p class="card-text">{{$postagem->descricao}}</p>
+                                <a href="{{ URL::to('postagem') }}" class="btn btn-primary">Abrir postagem</a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
