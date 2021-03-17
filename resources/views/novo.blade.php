@@ -19,7 +19,29 @@
                     {!! Form::input('text', 'titulo', null, ['class' => 'form-control', 'placeholder' => 'Título']) !!}
                     {!! Form::label('descricao', "Descrição") !!}
                     {!! Form::textarea('descricao', null, ['class' => 'form-control', 'placeholder' => 'Descrição']) !!}
-                    {!! Form::input('text', 'imagem', null, ['class' => 'form-control', 'placeholder' => 'Imagem']) !!}
+                    {!! Form::input('file', 'imagem', null, ['class' => 'form-control', 'placeholder' => 'Imagem', 'accept' => 'image/*']) !!}
+
+
+
+
+{{--                      @csrf
+                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" onchange="readURL(this);">
+                    <label for="file-upload" id="file-drag">
+                        <img id="file-image" src="#" alt="Preview" class="hidden">
+                        <div id="start" >
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                            <div>Select a file or drag here</div>
+                            <div id="notimage" class="hidden">Please select an image</div>
+                            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                            <br>
+                            <span class="text-danger">{{ $errors->first('fileUpload') }}</span>
+                        </div>
+                    </label>
+  --}}
+
+
+
+
 
                     {!! Form::input('text', 'ativa', 'S', ['class' => 'form-control', 'hidden', 'placeholder' => 'Ativo']) !!}
 

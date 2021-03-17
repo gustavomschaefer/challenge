@@ -29,10 +29,10 @@ class PublicController extends Controller
         return view('public', ['postagens' => $postagens]);
     }
 
-    public function postagem()
+    public function postagem($id)
     {
-        //$postagem = Postagem::get();
+        $postagem = Postagem::findOrFail($id);
 
-        return view('public_post');
+        return view('public_post', ['postagem' => $postagem]);
     }
 }

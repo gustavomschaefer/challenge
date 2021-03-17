@@ -12,11 +12,11 @@
 
                     @foreach ($postagens as $postagem)
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="{{$postagem->imagem}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{$postagem->titulo}}</h5>
                                 <p class="card-text">{{$postagem->descricao}}</p>
-                                <a href="{{ URL::to('postagem') }}" class="btn btn-primary">Abrir postagem</a>
+                                <a href="postagem/{{$postagem->id}}" class="btn btn-primary">Abrir postagem</a>
                             </div>
                         </div>
                     @endforeach

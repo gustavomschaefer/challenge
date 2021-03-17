@@ -9,5 +9,5 @@ Route::delete('/posts/{postagem}', 'PostsController@deletar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/postagem', 'PublicController@postagem');
+Route::get('/postagem/{postagem}', 'PublicController@postagem');
 Route::get('/', 'PublicController@index');

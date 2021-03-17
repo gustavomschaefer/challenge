@@ -6,6 +6,9 @@ use App\Postagem;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
+use App\Images;
+use Image;
 
 class PostsController extends Controller
 {
@@ -38,9 +41,16 @@ class PostsController extends Controller
     public function salvar(Request $request)
     {
         $postagem = new Postagem();
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $upload = $request->imagem->storeAS('postagens','post'.$request->id);
+            if (!$upload) {
+                \Session::flash('erroMsg', 'Erro ao fazer o upload da imagem');
+                return Redirect::to('home');
+            }
+
+        }
 
         $postagem = $postagem->create($request->all());
-
 
         \Session::flash('sucessoMsg', 'Post cadastrado com sucesso!');
 

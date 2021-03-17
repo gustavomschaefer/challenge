@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$postagem->titulo}}</h5>
                             <p class="card-text">{{$postagem->descricao}}</p>
-                            <a href="{{ URL::to('postagem') }}" class="btn btn-primary">Abrir postagem</a>
+                            <a href="postagem/{{$postagem->id}}" class="btn btn-primary">Abrir postagem</a>
                             <a href="posts/{{$postagem->id}}/editar" class="btn btn-default btn-sm">Editar</a>
 
                             {!! Form::open(['method' => 'DELETE', 'url' => 'posts/'.$postagem->id, 'style' => 'display: inline;']) !!}
