@@ -12,7 +12,7 @@
 
                     @foreach ($postagens as $postagem)
                         <div class="card" style="width: 18rem;">
-                            <img src="{{$postagem->imagem}}" class="card-img-top" alt="...">
+                            <img src="storage/postagens/{{$postagem->imagem}}" class="card-img-top" alt="{{$postagem->titulo}}">
                             <div class="card-body">
                                 <h5 class="card-title">{{$postagem->titulo}}</h5>
                                 <p class="card-text">{{$postagem->descricao}}</p>

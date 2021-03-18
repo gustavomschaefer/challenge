@@ -10,16 +10,16 @@
                 <div class="card-body">
 
                     @if (Request::is('*/editar'))
-                        {!! Form::model($postagem, ['method' => 'PATCH', 'url' => 'posts/'.$postagem->id]) !!}
+                        {!! Form::model($postagem, ['method' => 'PATCH', 'enctype' => 'multipart/form-data', 'url' => 'posts/'.$postagem->id]) !!}
                     @else
-                        {!! Form::open(['url' => 'posts/salvar']) !!}
+                        {!! Form::open(['url' => 'posts/salvar', 'enctype' => 'multipart/form-data']) !!}
                     @endif
 
                     {!! Form::label('titulo', "Título") !!}
                     {!! Form::input('text', 'titulo', null, ['class' => 'form-control', 'placeholder' => 'Título']) !!}
                     {!! Form::label('descricao', "Descrição") !!}
                     {!! Form::textarea('descricao', null, ['class' => 'form-control', 'placeholder' => 'Descrição']) !!}
-                    {!! Form::input('file', 'imagem', null, ['class' => 'form-control', 'placeholder' => 'Imagem', 'accept' => 'image/*']) !!}
+                    {!! Form::input('file', 'imagem', null, ['id' => 'imagem', 'class' => 'form-control']) !!}
 
 
 

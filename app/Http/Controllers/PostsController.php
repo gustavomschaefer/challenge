@@ -41,16 +41,28 @@ class PostsController extends Controller
     public function salvar(Request $request)
     {
         $postagem = new Postagem();
+
+        $postagem->titulo = $request->titulo;
+        $postagem->descricao = $request->descricao;
+        $postagem->imagem = $request->imagem;
+        $postagem->ativa = $request->ativa;
+
+
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-            $upload = $request->imagem->storeAS('postagens','post'.$request->id);
+
+            $imagemNome = md5($request->imagem->getClientOriginalName() . strtotime('now')) . "." . $request->imagem->extension();
+
+            $upload = $request->imagem->storeAS('postagens', $imagemNome);
             if (!$upload) {
                 \Session::flash('erroMsg', 'Erro ao fazer o upload da imagem');
                 return Redirect::to('home');
             }
 
+            $postagem->imagem = $imagemNome;
+
         }
 
-        $postagem = $postagem->create($request->all());
+        $postagem->save();
 
         \Session::flash('sucessoMsg', 'Post cadastrado com sucesso!');
 

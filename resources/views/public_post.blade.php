@@ -8,7 +8,7 @@
                 <div class="card-header">{{$postagem->titulo}}</div>
 
                 <div class="card-body">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="storage/postagens/{{$postagem->imagem}}" class="card-img-top" alt="{{$postagem->titulo}}">
                     <p class="card-text">{{$postagem->descricao}}</p>
                 </div>
 
